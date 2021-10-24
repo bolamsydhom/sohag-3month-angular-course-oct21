@@ -1,0 +1,21 @@
+<div *ngIf="product.discount" class="item-medium-1__alert">Sale</div>
+<div class="item-medium-1__image image" [style.backgroundImage]=" 'url(' + product.imgUrl + ')' ">
+    <!-- style.bacgorundImage = 'url(assts/images/hamda.png)'
+    style.bacgorundImage = `url(${product.iimgUrl})` -->
+
+    <a href="#" class="item-medium-1__action">Add to Cart</a>
+</div>
+<a href="#">
+    <h4>{{product.name}}</h4>
+    <div class="flex-row">
+        <div>
+            <del *ngIf="product.discount" [innerText] = "product.price">$</del>
+            <span class="lable">${{getPrice()}}</span>
+        </div>
+    </div>
+</a>
+<div class="crud-actions">
+    <a href="#"><i class="far fa-eye"></i></a>
+    <a href="#"><i class="fas fa-edit"></i></a>
+    <a href="#"><i class="fas fa-trash-alt"></i></a>
+</div>
