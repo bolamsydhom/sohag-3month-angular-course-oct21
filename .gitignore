@@ -9,7 +9,7 @@
 
 # dependencies
 /node_modules
-
+/HTML-css-sapmle-template
 # profiling files
 chrome-profiler-events*.json
 
