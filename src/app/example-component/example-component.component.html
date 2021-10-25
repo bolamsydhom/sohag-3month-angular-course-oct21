@@ -2,3 +2,49 @@
     hello "{{divName + ', you have been missed'}}"
 </div>
 <img [attr.Src]="'assets/img/layout-styles.png'" style="width: 50px; height: 50px;" alt="" srcset="">
+
+<div [class.test-class]="number < 20" > Ay Kalam</div>
+<div class="mb-1 pr-1 link" [ngClass]="{'active': number <20, 'green': number >20}"> test class</div>
+
+<div [ngStyle]="{'font-size': number<20 ? '20px' : '100px'}"> this ngStyle Div </div>
+
+    <div class="col-md-3 col-lg-6 col-sm-12 hamada">
+
+    </div>
+    
+<!-- <div [ngSwitch]="gender">
+    <div *ngSwitchCase="'Male'"> Male </div>
+    <div *ngSwitchCase="'Female'"> Female </div>
+    <div *ngSwitchDefault> other</div>
+</div> -->
+
+<!-- <div [ngSwitch]="true">
+    <div *ngSwitchCase="number>20"> big Number </div>
+    <div *ngSwitchCase="number<20"> small Numer </div>
+    <div *ngSwitchDefault> other</div>
+</div> -->
+
+
+<!-- <div *ngIf="number < 20; else loading">
+   cards
+</div>
+
+<ng-template #loading>
+    <div>
+        <ul>
+            <li>
+                <input type="">
+            </li>
+        </ul>
+        this small number
+    </div>
+</ng-template> -->
+
+<!-- *ngIf -->
+<!-- *ngFor  -->
+<!-- *ngSwitchCase  -->
+<!-- *ngSwitchDefault -->
+
+<!-- [ngSwitch]  -->
+<!-- [ngClass]  -->
+<!-- [ngStyle] -->

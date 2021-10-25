@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Product } from 'src/app/_models/product.model';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+@Input() arrayOfProducts!: Product[];
+cartIsOpen: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

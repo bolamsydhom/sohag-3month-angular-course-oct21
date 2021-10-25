@@ -14,9 +14,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExampleComponent implements OnInit {
     divName = 'hady'
-    
+    gender = 'Hamada';
+    number = 30;
   ngOnInit() {
+    
+
+ 
 //    const div = document.getElementById('div') as HTMLElement;
 //    div.innerText = this.divName;
+  }
+  calculateAge(){
+
   }
 }

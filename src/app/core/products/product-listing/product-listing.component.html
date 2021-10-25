@@ -81,7 +81,11 @@
         <div class="item-listing__items item-listing--3items">
             <!-- medium item -->
 
-            <app-product-item *ngFor="let item of productListArray" [product]="item" class="item-medium-1"></app-product-item>
+            <!-- for( let i =0 ; i<=10 ; i++){
+              return  productArray[i]
+            } -->
+
+            <app-product-item (itemAdded)="newItemAdded($event)" *ngFor="let item of productListArray, let i = index" [product]="productListArray[i]" class="item-medium-1"></app-product-item>
         </div>
         <!-- paging -->
         <div class="paging">

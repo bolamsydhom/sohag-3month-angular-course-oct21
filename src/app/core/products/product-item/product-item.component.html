@@ -1,9 +1,10 @@
-<div *ngIf="product.discount" class="item-medium-1__alert">Sale</div>
+<div *ngIf="product.discount" class="item-medium-1__alert" #divSale>Sale</div>
 <div class="item-medium-1__image image" [style.backgroundImage]=" 'url(' + product.imgUrl + ')' ">
     <!-- style.bacgorundImage = 'url(assts/images/hamda.png)'
     style.bacgorundImage = `url(${product.iimgUrl})` -->
+    <!-- <input type="text" style="z-index: 20" #inputNumber> -->
 
-    <a href="#" class="item-medium-1__action">Add to Cart</a>
+    <a class="item-medium-1__action"  (click)="itemAddedToCart()">Add to Cart</a>
 </div>
 <a href="#">
     <h4>{{product.name}}</h4>

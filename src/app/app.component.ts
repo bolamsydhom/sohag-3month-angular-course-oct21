@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './_models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  productArray: Product[] = [];
+
   title = 'sohag-angular-course';
+
+  outputItemAdded(product: Product){
+    console.log(product);
+    this.productArray.push(product);
+  }
 }
