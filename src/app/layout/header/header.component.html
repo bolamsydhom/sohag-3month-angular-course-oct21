@@ -53,18 +53,16 @@
                 <li class="list__item">
                     <!-- drop down -->
                     <!-- to oppen dropdown dropdown--opened -->
-                    <div class="dropdown ">
-                        <!-- header -->
-                        <div class="dropdown__header">
+                    <app-drop-down>
+                        <ng-container class="header">
                             <a href="#" class="link">
                                 <img class="flag flag-us" src="" alt="">
                                 English
                             </a>
                             <i class="fas fa-angle-down"></i>
-                        </div>
+                        </ng-container>
 
-                        <!-- items -->
-                        <div class="dropdown__body">
+                        <ng-container class="body">
                             <ul class="dropdown__items list">
                                 <li class="dropdown__item list__item">
                                     <a href="#" class="link">
@@ -85,8 +83,8 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
+                        </ng-container>
+                    </app-drop-down>
                 </li>
             </ul>
         </div>
@@ -101,69 +99,70 @@
         <div class="header__user-options">
             <!-- login control -->
             <a href="#" class="link">Login</a>
-            <div class="dropdown">
-                <div class="dropdown__header">
+            <app-drop-down>
+                <ng-container class="header">
                     <div class="image image--small image--circle"
-                        style="background-image: url('assets/img/PersonalImage.png')">
-                    </div>
+                    style="background-image: url('assets/img/PersonalImage.png')">
                 </div>
-                <div class="dropdown__body">
+                </ng-container>
 
-                </div>
-            </div>
+                <ng-container class="body">
+
+                </ng-container>
+            </app-drop-down>
+            
             <!-- shopping card dropdown -->
             <!-- dropdown--opened to open -->
-            <div class="dropdown dropdown--left" [ngClass]="{'dropdown--opened': cartIsOpen}">
-                <!-- header -->
-                <div class="dropdown__header">
-                    <div class="image image--small" style="background-image: url('assets/img/cart.png')" (click)="cartIsOpen = !cartIsOpen">
+            <app-drop-down>
+                <ng-container class="header">
+                    <div class=" image image--small" style="background-image: url('assets/img/cart.png')">
                         <div class="notification notification--danger">
                             {{arrayOfProducts.length}}
                         </div>
                     </div>
-                </div>
-                <!-- body -->
-                <div class="dropdown__body">
-                    <!-- items -->
-                    <ul class="dropdown__items list list--vr-separator">
-                        <li *ngFor="let product of arrayOfProducts" class="dropdown__item list__item">
-                            <!-- item small 2 -->
-                            <div class="item-small-1">
-                                <!-- item data -->
-                                <div class="item-small-1__data">
-                                    <!-- title -->
-                                    <a href="" class="item-small-1__title">{{product.name}} X{{product.price}}</a>
-                                    <!-- price -->
-                                    <span class="item-small-1__description">
-                                        1 X ${{product.price}}
-                                    </span>
+                </ng-container>
+                <ng-container class="body">
+                          <!-- items -->
+                          <ul class="dropdown__items list list--vr-separator">
+                            <li *ngFor="let product of arrayOfProducts" class="dropdown__item list__item">
+                                <!-- item small 2 -->
+                                <div class="item-small-1">
+                                    <!-- item data -->
+                                    <div class="item-small-1__data">
+                                        <!-- title -->
+                                        <a href="" class="item-small-1__title">{{product.name}} X{{product.price}}</a>
+                                        <!-- price -->
+                                        <span class="item-small-1__description">
+                                            1 X ${{product.price}}
+                                        </span>
+                                    </div>
+                                    <!-- item image -->
+                                    <div class="item-small-1__image-box">
+                                        <a href="#" class="item-small-1__image image"
+                                            [style.backgroundImage]=" 'url(' + product.imgUrl + ')'">
+                                        </a>
+                                        <a href="#" class="item-small-1__action">
+                                            <i class="fas fa-times"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <!-- item image -->
-                                <div class="item-small-1__image-box">
-                                    <a href="#" class="item-small-1__image image"
-                                        [style.backgroundImage]=" 'url(' + product.imgUrl + ')'">
-                                    </a>
-                                    <a href="#" class="item-small-1__action">
-                                        <i class="fas fa-times"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
- 
-                    </ul>
-                    <!-- totals -->
-                    <div class="separator"></div>
-                    <div class="block">
-                        <span class="lable">Total:</span>
-                        <span class="lable">$2870</span>
-                    </div>
-                    <!-- actions -->
-                    <div class="block list list--hr">
-                        <a class="list-item btn btn--gray" href="">View Cart</a>
-                        <a class="list-item btn btn--primary" href="">Checkout</a>
-                    </div>
-                </div>
-            </div>
+                            </li>
+     
+                        </ul>
+                        <!-- totals -->
+                        <div class="separator"></div>
+                        <div class="block">
+                            <span class="lable">Total:</span>
+                            <span class="lable">$2870</span>
+                        </div>
+                        <!-- actions -->
+                        <div class="block list list--hr">
+                            <a class="list-item btn btn--gray" href="">View Cart</a>
+                            <a class="list-item btn btn--primary" href="">Checkout</a>
+                        </div>
+                </ng-container>
+            </app-drop-down>
+
         </div>
     </div>
     <!-- lower header -->

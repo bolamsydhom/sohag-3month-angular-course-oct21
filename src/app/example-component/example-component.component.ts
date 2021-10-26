@@ -22,6 +22,18 @@ export class ExampleComponent implements OnInit {
  
 //    const div = document.getElementById('div') as HTMLElement;
 //    div.innerText = this.divName;
+
+// class car{
+//   color,
+//   YOM,
+//   model
+// }
+
+// BMW = new car()
+// BMW. color = red;
+
+// MG = new car();
+// MG.color = green
   }
   calculateAge(){
 

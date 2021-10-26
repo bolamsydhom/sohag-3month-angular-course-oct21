@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Product } from 'src/app/_models/product.model';
+import { ProductService } from 'src/app/_services/productService.service';
 
 @Component({
   selector: 'app-product-item',
@@ -8,7 +9,7 @@ import { Product } from 'src/app/_models/product.model';
 })
 export class ProductItemComponent implements OnInit {
  @Input() product!: Product;
- @Output() itemAdded = new EventEmitter<Product>();
+//  @Output() itemAdded = new EventEmitter<Product>();
 
 
 //  @ViewChild('inputNumber') inputElement !: ElementRef ;
@@ -16,7 +17,7 @@ export class ProductItemComponent implements OnInit {
 // //  inputElement.value
 //  @ViewChild('divSale') divElement !: ElementRef ;
 
-  constructor() {
+  constructor(private productService: ProductService) {
   }
 
   ngOnInit(): void {
@@ -47,6 +48,8 @@ export class ProductItemComponent implements OnInit {
     // console.log('div', this.divElement);
     // console.log('input', this.inputElement.nativeElement);
 
-    this.itemAdded.emit(this.product)
+    this.productService.itemAdded.emit(this.product);
+    console.log('mmmmm');
+    
   }
 }

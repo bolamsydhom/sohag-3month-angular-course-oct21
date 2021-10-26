@@ -7,6 +7,8 @@ import { ExampleComponent } from './example-component/example-component.componen
 import { HeaderComponent } from './layout/header/header.component';
 import { ProductListingComponent } from './core/products/product-listing/product-listing.component';
 import { ProductItemComponent } from './core/products/product-item/product-item.component';
+import { DropDownComponent } from './shared/drop-down/drop-down.component';
+import { ProductService } from './_services/productService.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { ProductItemComponent } from './core/products/product-item/product-item.
     ExampleComponent,
     HeaderComponent,
     ProductListingComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    DropDownComponent
   ],
   imports: [
     BrowserModule,

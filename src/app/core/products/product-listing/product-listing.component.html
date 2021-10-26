@@ -85,20 +85,19 @@
               return  productArray[i]
             } -->
 
-            <app-product-item (itemAdded)="newItemAdded($event)" *ngFor="let item of productListArray, let i = index" [product]="productListArray[i]" class="item-medium-1"></app-product-item>
+            <app-product-item *ngFor="let item of productsArrayToBeViewed, let i = index" [product]="item" class="item-medium-1"></app-product-item>
         </div>
         <!-- paging -->
         <div class="paging">
             <!-- left arrow -->
-            <div class="paging__arrow">
+            <div class="paging__arrow" (click)="onPagination(currentPage - 1)">
                 <i class="fas fa-angle-left"></i>
             </div>
             <!-- page number -->
-            <div class="paging__number active">1</div>
-            <div class="paging__number">2</div>
-            <div class="paging__number">3</div>
+            <div class="paging__number" [ngClass]="{'active': currentPage == i }" *ngFor="let page of noOfPagesArray, let i = index" (click)="onPagination(i)"> {{page}}</div>
+  
             <!-- right arrow -->
-            <div class="paging__arrow">
+            <div class="paging__arrow" (click)="onPagination(currentPage + 1)">
                 <i class="fas fa-angle-right"></i>
             </div>
         </div>
