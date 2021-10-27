@@ -9,6 +9,10 @@ import { ProductListingComponent } from './core/products/product-listing/product
 import { ProductItemComponent } from './core/products/product-item/product-item.component';
 import { DropDownComponent } from './shared/drop-down/drop-down.component';
 import { ProductService } from './_services/productService.service';
+import { AddProductComponent } from './core/products/add-product/add-product.component';
+import { PaymentTypesComponent } from './shared/payment-types/payment-types.component';
+import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,10 @@ import { ProductService } from './_services/productService.service';
     HeaderComponent,
     ProductListingComponent,
     ProductItemComponent,
-    DropDownComponent
+    DropDownComponent,
+    AddProductComponent,
+    PaymentTypesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

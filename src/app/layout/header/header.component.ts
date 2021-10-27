@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/_services/productService.service';
 })
 export class HeaderComponent implements OnInit {
  arrayOfProducts: Product[] = [];
-
+id = 1;
   constructor(private productService: ProductService) { 
   }
 // Dependency Injection 

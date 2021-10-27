@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/_services/productService.service';
 })
 export class ProductListingComponent implements OnInit {
   @Input() productListArray!: Product[];
-  @Input() numberOfItemsPerPage!: number;
+  @Input() numberOfItemsPerPage: number = 9;
  
 
   noOfPagesArray: number[] = [];

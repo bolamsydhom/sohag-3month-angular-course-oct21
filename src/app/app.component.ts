@@ -8,7 +8,7 @@ import { Product } from './_models/product.model';
 })
 export class AppComponent {
   productArray: Product[] = [];
-
+buttonClicked = 'app-listing';
   // exampleProducts = 
   title = 'sohag-angular-course';
 
