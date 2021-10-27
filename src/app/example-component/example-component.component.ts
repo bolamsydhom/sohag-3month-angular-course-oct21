@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval, Observable, Subject, Subscription } from 'rxjs';
 
 // @Component({
 //     selector: 'app-example-component',
@@ -13,29 +14,116 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./example-component.component.scss'],
 })
 export class ExampleComponent implements OnInit {
-    divName = 'hady'
-    gender = 'Hamada';
-    number = 30;
+  divName = 'hady';
+  gender = 'Hamada';
+  number = 30;
+
+  subscribtion!: Subscription;
   ngOnInit() {
-    
+    // const myPromise = new Promise((resolve, reject) => {
+    //   alert('hi');
+    //   const x = 5;
+    //   const y = 6;
+    //   reject('Error Happened');
+    //   resolve(5 + 6);
+    // });
 
- 
-//    const div = document.getElementById('div') as HTMLElement;
-//    div.innerText = this.divName;
+    // myPromise
+    //   .then((value) => {
+    //     alert(value);
+    //   })
+    //   .catch((reson) => {
+    //     alert(reson);
+    //   });
 
-// class car{
-//   color,
-//   YOM,
-//   model
-// }
+    // this.myPromiseFunction(1, 0)
+    //   .then((value) => {
+    //     alert(value);
+    //   })
+    //   .catch((reson) => alert(reson));
 
-// BMW = new car()
-// BMW. color = red;
+      const obj = new Observable((subscriber) => {
+        const x = 10 / 10;
+        alert('test Observable')
+        if (x == 6) {
+          subscriber.next('hello form observable');
+        } else {
+          subscriber.error('Error Happened');
+        }
+        subscriber.complete();
+      });
 
-// MG = new car();
-// MG.color = green
+
+      const sub = new Subject();
+      sub.next('hamada');
+      sub.error('hamda has errorr');
+
+
+      sub.subscribe(
+        (res)=>{console.log(res);
+        },
+        (err)=>{console.error(err);
+        },
+        ()=>{},
+      )
+
+    //  this.subscribtion = obj.subscribe(
+    //     (value) => {
+    //       alert(value);
+    //     },
+    //     (error) => {
+    //       alert(error);
+    //     },
+    //     () => {
+    //       alert('completed');
+    //     }
+    //   );
+
+    // const test = interval(2000);
+    // test.subscribe(
+    //   (res) => {
+    //     console.log(res);
+    //   },
+    //   (err) => {},
+    //   () => {}
+    // );
+
+
+    const newInterval = this.myInterval(2000);
+    newInterval.subscribe(
+      (res)=>{console.log(res);
+      },
+      (err)=>{console.error(err);
+      },
+      ()=>{}
+    )
   }
-  calculateAge(){
 
+  // myPromiseFunction(no1: number, no2: number): Promise<number> {
+  //   const myPromise2 = new Promise<number>((resolve, reject) => {
+  //     if (no2 == 0) {
+  //       reject('Cannot Divide by Zero');
+  //     } else {
+  //       resolve(no1 / no2);
+  //     }
+  //   });
+
+  //   return myPromise2;
+  // }
+
+  myInterval(period: number): Observable<number>{
+    let num = 0;
+    return new Observable<number>((subscriber)=> {
+      setInterval( ()=> {
+        subscriber.next(num++)
+      }, period)
+    })
+
+  }
+
+
+
+  ngOnDestroy() {
+    this.subscribtion.unsubscribe();
   }
 }
