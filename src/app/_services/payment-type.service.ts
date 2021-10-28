@@ -13,6 +13,7 @@ export class PaymentTypeService {
     {id: 5, name: 'MasterCard'},
     {id: 6, name: 'Meza'},
     {id: 7, name: 'COD'}
+    
   ]
   constructor() { }
 
