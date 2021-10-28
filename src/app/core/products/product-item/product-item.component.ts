@@ -32,9 +32,10 @@ export class ProductItemComponent implements OnInit {
   }
 
   getPrice() {
-    return this.product.discount
+
+    return this.product.price ? this.product.discount
       ? this.product.price - this.product.discount
-      : this.product.price;
+      : this.product.price : 0;
   }
 
   itemAddedToCart(){

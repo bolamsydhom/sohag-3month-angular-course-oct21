@@ -1,5 +1,5 @@
 <div *ngIf="product.discount" class="item-medium-1__alert" #divSale>Sale</div>
-<div class="item-medium-1__image image" [style.backgroundImage]=" 'url(' + product.imgUrl + ')' ">
+<div class="item-medium-1__image image" [style.backgroundImage]=" 'url(' + product.imgUrls[0] + ')' ">
     <!-- style.bacgorundImage = 'url(assts/images/hamda.png)'
     style.bacgorundImage = `url(${product.iimgUrl})` -->
     <!-- <input type="text" style="z-index: 20" #inputNumber> -->
@@ -7,7 +7,7 @@
     <a class="item-medium-1__action"  (click)="itemAddedToCart()">Add to Cart</a>
 </div>
 <a href="#">
-    <h4>{{product.name}}</h4>
+    <h4>{{product.basicData[0].name}}</h4>
     <div class="flex-row">
         <div>
             <del *ngIf="product.discount" [innerText] = "product.price">$</del>

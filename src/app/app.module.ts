@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,10 +9,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ProductListingComponent } from './core/products/product-listing/product-listing.component';
 import { ProductItemComponent } from './core/products/product-item/product-item.component';
 import { DropDownComponent } from './shared/drop-down/drop-down.component';
-import { ProductService } from './_services/productService.service';
 import { AddProductComponent } from './core/products/add-product/add-product.component';
 import { PaymentTypesComponent } from './shared/payment-types/payment-types.component';
-import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 @NgModule({
@@ -28,7 +27,8 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
