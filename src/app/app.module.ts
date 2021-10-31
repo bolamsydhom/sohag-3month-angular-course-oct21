@@ -6,31 +6,35 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExampleComponent } from './example-component/example-component.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { ProductListingComponent } from './core/products/product-listing/product-listing.component';
-import { ProductItemComponent } from './core/products/product-item/product-item.component';
 import { DropDownComponent } from './shared/drop-down/drop-down.component';
-import { AddProductComponent } from './core/products/add-product/add-product.component';
 import { PaymentTypesComponent } from './shared/payment-types/payment-types.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { HomeComponent } from './layout/home/home.component';
+import { ProductModule } from './core/products/product.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { MyInterseptorService } from './_services/my-interseptor.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExampleComponent,
     HeaderComponent,
-    ProductListingComponent,
-    ProductItemComponent,
     DropDownComponent,
-    AddProductComponent,
     PaymentTypesComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    FormsModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: MyInterseptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ import { ProductService } from 'src/app/_services/productService.service';
   selector: 'app-product-listing',
   templateUrl: './product-listing.component.html',
   styleUrls: ['./product-listing.component.scss'],
+  animations:[]
 })
 export class ProductListingComponent implements OnInit {
   @Input() productListArray!: Product[];
@@ -15,16 +16,41 @@ export class ProductListingComponent implements OnInit {
   noOfPagesArray: number[] = [];
   productsArrayToBeViewed: Product[] = [];
   currentPage: number = 0;
-  productService = new ProductService;
+  
 
-  constructor() {
+  constructor(private productService: ProductService) {
 
   }
 
   ngOnInit(): void {
-    this.productListArray = this.productService.getAllProducts();
+   this.productService.getAllProducts().subscribe(
+     (res)=>{
+       console.log(res);
+       this.productListArray = res.product
+       this.sliceArray();
+       this.calculatePageNumbers();
+     }
+   );
+ 
+    this.productService.productsChanged.subscribe(
+      (res) => {
+        console.log('product list', res);
+        
+        this.productListArray = res;
+        this.sliceArray();
+        this.calculatePageNumbers();
+      }
+    );
+
+  console.log(this.productListArray);
   
 
+   
+
+    // array.slice(currentPage * numberOfItemsPerPage , (currentPage * numberOfItemsPerPage)+numberOfItemsPerPage)
+  }
+
+  calculatePageNumbers(){
     const numberOfPages = Math.ceil(
       this.productListArray.length / this.numberOfItemsPerPage
     );
@@ -33,9 +59,6 @@ export class ProductListingComponent implements OnInit {
       this.noOfPagesArray.push(index + 1);
     }
 
-    this.sliceArray();
-
-    // array.slice(currentPage * numberOfItemsPerPage , (currentPage * numberOfItemsPerPage)+numberOfItemsPerPage)
   }
 
   newItemAdded(product: Product) {

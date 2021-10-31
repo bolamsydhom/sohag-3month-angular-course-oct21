@@ -1,9 +1,9 @@
 import { Language } from "./language.model";
 
-export interface BasicData {
+export interface data {
     id?: number;
     name?: string; 
-    desc?: string; 
+    description?: string; 
     lang?: Language; 
   }
   

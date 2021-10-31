@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AddProductComponent } from './core/products/add-product/add-product.component';
-import { ProductListingComponent } from './core/products/product-listing/product-listing.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { HomeComponent } from './layout/home/home.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 
 const routes: Routes = [
-  {path:'', component: ProductListingComponent},
+  {path:'', component: HomeComponent},
   {path:'home', redirectTo: '', pathMatch: 'full'},
-  {path:'add-product', component: AddProductComponent},
+  {path:'register', component: RegisterComponent},
+  {path:'login', component: LoginComponent},
+  {path: 'product', loadChildren: ()=> import('./core/products/product.module').then(m => m.ProductModule)},
+
   {path:'**', component: NotFoundComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules, scrollPositionRestoration: 'top'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
